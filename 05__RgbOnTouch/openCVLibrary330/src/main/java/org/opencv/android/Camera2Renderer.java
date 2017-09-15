@@ -33,7 +33,7 @@ public class Camera2Renderer extends CameraGLRendererBase {
     private Handler mBackgroundHandler;
     private Semaphore mCameraOpenCloseLock = new Semaphore(1);
 
-    Camera2Renderer(CameraGLSurfaceView view) {
+    public Camera2Renderer(CameraGLSurfaceView view) {
         super(view);
     }
 

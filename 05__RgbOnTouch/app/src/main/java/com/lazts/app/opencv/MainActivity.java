@@ -2,6 +2,7 @@ package com.lazts.app.opencv;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -19,19 +20,16 @@ import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.JavaCameraView;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
-import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
 
 public class MainActivity extends AppCompatActivity implements
         View.OnTouchListener,
         CameraBridgeViewBase.CvCameraViewListener2 {
 
     private static final int REQUEST_CODE_ASK_SINGLE_PERMISSION = 1000;
-    private CameraBridgeViewBase jcvCamera;
+    private JavaCameraView jcvCamera;
     private TextView tvCoordinate;
     private ImageView ivColor;
     private TextView tvColor;

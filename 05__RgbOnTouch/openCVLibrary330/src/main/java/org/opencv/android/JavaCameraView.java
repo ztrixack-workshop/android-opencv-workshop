@@ -136,6 +136,11 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
             if (mCamera == null)
                 return false;
 
+            if (Build.MODEL.contains("Nexus 5X")){
+                // rotate camera 180°
+                mCamera.setDisplayOrientation(180);
+            }
+
             /* Now set camera parameters */
             try {
                 Camera.Parameters params = mCamera.getParameters();

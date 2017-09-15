@@ -8,6 +8,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.SurfaceView;
+import android.view.WindowManager;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements
         public void onManagerConnected(int status) {
             switch (status) {
                 case LoaderCallbackInterface.SUCCESS:
-                    mCascadeFile = createCascadeFile("haarcascade_frontalface_alt2.xml");
+                    mCascadeFile = createCascadeFile("haarcascade_frontalface_alt.xml");
                     jcvCamera.enableView();
                     break;
 
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        jcvCamera.setVisibility(SurfaceView.VISIBLE);
         jcvCamera = (JavaCameraView) findViewById(R.id.jcv_camera);
         jcvCamera.setCvCameraViewListener(this);
 
